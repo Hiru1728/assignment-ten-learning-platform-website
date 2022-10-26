@@ -8,10 +8,16 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Image from 'react-bootstrap/Image'
 import { FaUser } from 'react-icons/fa';
+import { Button } from 'react-bootstrap';
 
 const NavBar = () => {
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
@@ -29,11 +35,11 @@ const NavBar = () => {
                             {
                                 user?.uid ?
                                     <>
-                                        <button>Log Out</button>
+                                        <Button variant="warning" onClick={handleLogOut}>Log Out</Button>
                                     </>
                                     :
                                     <>
-                                        <Link to='/login'>Log In</Link>
+                                        <Link className='me-2' to='/login'>Log In</Link>
                                         <Link to='/register'>Register</Link>
                                     </>
                             }
