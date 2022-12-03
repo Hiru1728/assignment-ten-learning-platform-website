@@ -26,8 +26,7 @@ const NavBar = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link ><Link to='/courses'>Courses</Link></Nav.Link>
-                        <Nav.Link href="#pricing">FAQ</Nav.Link>
-                        <Nav.Link href="#blog">Blog</Nav.Link>
+                        <Nav.Link href="/blog">Blog</Nav.Link>
                     </Nav>
                     <Nav>
                         {/* <Nav.Link > <Link to='/login'>Log In</Link></Nav.Link> */}
@@ -35,6 +34,7 @@ const NavBar = () => {
                             {
                                 user?.uid ?
                                     <>
+                                        <span>{user.name}</span>
                                         <Button variant="warning" onClick={handleLogOut}>Log Out</Button>
                                     </>
                                     :
