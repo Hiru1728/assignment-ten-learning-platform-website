@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import ShowAllCourses from './ShowAllCourses/ShowAllCourses';
 
 const CoursesCard = () => {
     const [courses, setCourses] = useState([]);
     console.log(courses);
     useEffect(() => {
-        fetch('http://localhost:5000/courses')
+        fetch('http://localhost:5000/courses/')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
-            <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
-                </div>
-            </div>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+            {
+                courses.map(course => <ShowAllCourses
+                    key={course.id}
+                    course={course}
+                ></ShowAllCourses>)
+            }
         </div>
     );
 };
