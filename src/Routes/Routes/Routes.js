@@ -3,6 +3,7 @@ import Main from "../../layout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import CourseInfo from "../../Pages/CourseInfo/CourseInfo";
+import CheckOut from "../../Pages/Courses/CheckOut/CheckOut";
 import Courses from "../../Pages/Courses/Courses";
 import CoursesCard from "../../Pages/Courses/CoursesCard";
 import Home from "../../Pages/Home/Home";
@@ -30,6 +31,11 @@ export const routes = createBrowserRouter([
                 path: '/courses/:id',
                 element: <CourseInfo></CourseInfo>,
                 loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+            },
+            {
+                path: '/checkout/:id',
+                element: <CheckOut></CheckOut>,
+                loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`)
             },
 
             {
