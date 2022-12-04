@@ -1,7 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { Outlet } from 'react-router-dom';
 import CourseDetails from '../CourseDetails/CourseDetails';
+import CoursesCard from './CoursesCard';
 
 const Courses = () => {
 
@@ -13,8 +13,7 @@ const Courses = () => {
                         <CourseDetails></CourseDetails>
                     </Col>
                     <Col lg='9'>
-
-                        <Outlet></Outlet>
+                        <CoursesCard></CoursesCard>
                     </Col>
                 </Row>
             </Container>
