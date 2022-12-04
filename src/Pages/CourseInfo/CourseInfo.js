@@ -11,7 +11,7 @@ const CourseInfo = () => {
                 <h2 className="card-title">Name : {name}</h2>
                 <p>{about}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-secondary text-white"><Link to={`/checkout/${id}`}>CheckOut</Link></button>
+                    <button className="btn btn-secondary text-white"><Link to={`/checkout/${id}`}>Get Premium Access</Link></button>
                 </div>
             </div>
         </div>

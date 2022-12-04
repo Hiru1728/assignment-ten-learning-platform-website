@@ -5,7 +5,7 @@ const CoursesCard = () => {
     const [courses, setCourses] = useState([]);
     console.log(courses);
     useEffect(() => {
-        fetch('http://localhost:5000/courses/')
+        fetch('https://assignment-ten-learning-platform-server-website.vercel.app/courses/')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])

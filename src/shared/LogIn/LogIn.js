@@ -5,9 +5,11 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import LoginDetails from './LoginDetails';
+import useTitle from '../../hooks/useTitle';
 
 const LogIn = () => {
     const { providerLogin, githubProviderLogin } = useContext(AuthContext);
+    useTitle('Login');
 
     const googleProvider = new GoogleAuthProvider();
 

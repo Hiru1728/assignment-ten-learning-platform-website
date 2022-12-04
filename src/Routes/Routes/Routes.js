@@ -1,18 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Blog from "../../Pages/Blog/Blog";
-import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import CourseInfo from "../../Pages/CourseInfo/CourseInfo";
 import CheckOut from "../../Pages/Courses/CheckOut/CheckOut";
 import CourseNameCard from "../../Pages/Courses/CourseNameCard/CourseNameCard";
 import Courses from "../../Pages/Courses/Courses";
-import CoursesCard from "../../Pages/Courses/CoursesCard";
 import Home from "../../Pages/Home/Home";
 import LogIn from "../../shared/LogIn/LogIn";
 import LoginDetails from "../../shared/LogIn/LoginDetails";
-import SignIn from "../../shared/LogIn/LoginDetails";
 import Register from "../../shared/LogIn/Register";
-import SignUp from "../../shared/LogIn/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 export const routes = createBrowserRouter([
@@ -31,17 +28,17 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses-name/:id',
                 element: <CourseNameCard></CourseNameCard>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses-name/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-ten-learning-platform-server-website.vercel.app/courses-name/${params.id}`)
             },
             {
                 path: '/courses/:id',
                 element: <CourseInfo></CourseInfo>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-ten-learning-platform-server-website.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/checkout/:id',
-                element: <CheckOut></CheckOut>,
-                loader: ({ params }) => fetch(`http://localhost:5000/checkout/${params.id}`)
+                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://assignment-ten-learning-platform-server-website.vercel.app/checkout/${params.id}`)
             },
 
             {

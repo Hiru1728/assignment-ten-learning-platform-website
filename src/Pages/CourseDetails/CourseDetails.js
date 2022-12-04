@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const CourseDetails = () => {
     const [courses, setCourses] = useState([]);
-    console.log(courses);
+    // console.log(courses);
+    useTitle('All courses');
     useEffect(() => {
-        fetch('http://localhost:5000/courses-name')
+        fetch('https://assignment-ten-learning-platform-server-website.vercel.app/courses-name')
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])
